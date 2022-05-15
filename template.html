@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tripple E</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="img/icon.png">
+</head>
+<body>
+    <div class="nav-top">
+        Tripple E
+        <div class="nav-img">
+            <a href="https://discord.gg/98KbaYZT3d" target="_blank"><img src="img/discord.png" href="https://discord.gg/98KbaYZT3d"></a>
+        </div>
+    </div>
+    <div class="divider"></div>
+    <div class="container">
+        <div class="top">
+            <h1>Commands</h1>
+            <h3>List of Bot Commands</h3>
+        </div>
+        <div class="command-section">
+            <ul>
+                <li class="closed" id="1" onclick="change_board(this)">Music</li>
+                <li class="open" id="2" onclick="change_board(this)">Last.fm</li>
+                <li class="open" id="3" onclick="change_board(this)">Fun</li>
+                <li class="open" id="4" onclick="change_board(this)">Information</li>
+            </ul>
+        </div>
+        <div class="command-list">
+            <table class="commands" id="board1">
+                <tr>
+                    <th>Command</th>
+                    <th>Description</th>
+                    <th>Usage</th>
+                </tr>
+                <tr>
+                    <td>play</td>
+                    <td>Plays the song from link provided</td>
+                    <td>.play [song link]</td>
+                </tr>
+                <tr>
+                    <td>disconnect</td>
+                    <td>Leaves the voice channel</td>
+                    <td>.disconnect</td>
+                </tr>
+                <tr>
+                    <td>join</td>
+                    <td>Joins the voice channel you're in</td>
+                    <td>.join</td>
+                </tr>
+                <tr>
+                    <td>pause</td>
+                    <td>Pauses currently playing song</td>
+                    <td>.pause</td>
+                </tr>
+                <tr>
+                  <td>resume</td>
+                  <td>Resumes previously paused song</td>
+                  <td>.resume</td>
+                </tr>
+            </table>
+
+            <table class="commands" id="board2">
+                <tr>
+                    <th>Command</th>
+                    <th>Description</th>
+                    <th>Usage</th>
+                </tr>
+                <tr>
+                    <td>lfset</td>
+                    <td>Sets your Last.fm account</td>
+                    <td>.lfset [last.fm username]</td>
+                </tr>
+                <tr>
+                    <td>rt</td>
+                    <td>Top 10 recent Last.fm tracks</td>
+                    <td>.rt</td>
+                </tr>
+                <tr>
+                    <td>np</td>
+                    <td>Now playing Last.fm track</td>
+                    <td>.np</td>
+                </tr>
+                <tr>
+                    <td>co</td>
+                    <td>Collage of Last.fm albums</td>
+                    <td>.co</td>
+                </tr>
+            </table>
+
+            <table class="commands" id="board3">
+                <tr>
+                    <th>Command</th>
+                    <th>Description</th>
+                    <th>Usage</th>
+                </tr>
+                <tr>
+                    <td>Test Command 3</td>
+                    <td>This command tests stuff 3</td>
+                    <td>$test [whatever input] 3</td>
+                </tr>
+                <tr>
+                    <td>Test Command 3</td>
+                    <td>This command tests stuff 3</td>
+                    <td>$test [whatever input] 3</td>
+                </tr>
+                <tr>
+                    <td>Test Command 3</td>
+                    <td>This command tests stuff 3</td>
+                    <td>$test [whatever input] 3</td>
+                </tr>
+                <tr>
+                    <td>Test Command 3</td>
+                    <td>This command tests stuff 3</td>
+                    <td>$test [whatever input] 3</td>
+                </tr>
+            </table>
+
+            <table class="commands" id="board4">
+                <tr>
+                    <th>Command</th>
+                    <th>Description</th>
+                    <th>Usage</th>
+                </tr>
+                <tr>
+                    <td>help</td>
+                    <td>Shows all commands the bot has</td>
+                    <td>.help</td>
+                </tr>
+                <tr>
+                    <td>botinfo</td>
+                    <td>Shows information on the bot</td>
+                    <td>.botinfo</td>
+                </tr>
+                <tr>
+                    <td>ping</td>
+                    <td>Get the bots latency</td>
+                    <td>.ping</td>
+                </tr>
+                <tr>
+                    <td>uptime</td>
+                    <td>Get the bots uptime</td>
+                    <td>.uptime</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="divider"></div>
+</body>
+<script>
+
+    document.getElementById('board1').style.display = 'block';
+    for (let i = 1; i <= 4; i++){
+        if (i != Number('1')){
+            console.log(document.getElementById('board' + String(i)));
+            document.getElementById('board' + String(i)).style.display = 'none';
+        }
+    }
+
+    document.getElementById('1').style.backgroundColor = '#6867de';
+    for (let i = 1; i <= 4; i++){
+        if (i != Number('1')){
+            document.getElementById(String(i)).style.backgroundColor = 'transparent';
+        }
+    }
+
+    function change_board(el){
+        btn_id = el.id;
+        board_id = 'board' + btn_id;
+
+        document.getElementById(board_id).style.display = 'block';
+        for (let i = 1; i <= 4; i++){
+            if (i != Number(btn_id)){
+                document.getElementById('board' + String(i)).style.display = 'none';
+            }
+        }
+
+        document.getElementById(btn_id).style.backgroundColor = '#6867de';
+        document.getElementById(btn_id).className = 'closed';
+        for (let i = 1; i <= 4; i++){
+            if (i != Number(btn_id)){
+                document.getElementById(String(i)).style.backgroundColor = 'transparent';
+                document.getElementById(String(i)).className = 'open';
+            }
+        }
+    }
+</script>
+</html>
