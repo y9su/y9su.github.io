@@ -8,9 +8,10 @@ body {
 }
 
 .nav-top{
+    position: relative;
     background-color: rgb(20, 18, 26, .5);
     box-shadow: 0 0 1rem rgb(0, 0, 0, .5);
-    text-align: left;
+    text-align: center;
     padding: 2vh 1.5rem;
     font-size: 25px;
     font-weight: 400;
@@ -18,8 +19,21 @@ body {
     color: #6867de;
 }
 
+.nav-name {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
 .nav-img{
-    float: right;
+    position: absolute;
+    right: 20px;
+    top: 30%;
+}
+
+.nav-mentions {
+    font-size: 20px;
 }
 
 .nav-img img{
@@ -29,13 +43,25 @@ body {
 }
 
 .divider {
-    height: 12vh;
+    height: 150px;
 }
 
 .container {
     width: 65%;
     display: block;
     margin: 0 auto;
+}
+
+@media only screen and (max-width: 1250px) {
+    .container {
+        width: 85%;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .container {
+        width: 96.5%;
+    }
 }
 
 .top{
@@ -138,3 +164,85 @@ table tr td:first-child{
 table tr td:last-child{
     color: rgb(125, 122, 133);
 }
+
+@media only screen and (max-width: 770px) {
+    .top{
+        float: none;
+        width: 100%;
+    }
+
+    .command-section {
+        float: none;
+        width: 100%;
+    }
+
+    .command-list {
+        float: none;
+        width: 100%;;
+        margin-top: 100px;
+    }
+
+    .divider {
+        height: 100px;
+    }
+    
+}
+
+@media only screen and (max-width: 650px) {
+    .nav-mentions {
+        display: none;
+    }
+
+    .nav-top{
+        height: 35px;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    table td{
+        padding: .6rem .8rem;
+        font-size: 18px;
+    }
+
+    ul {
+        margin: 0;
+        padding: .8rem;
+        list-style: none;
+        font-weight: 700;
+        font-size: 18px;
+        letter-spacing: 1px;
+    }
+
+    .divider {
+        height: 50px;
+    }
+
+    .command-list {
+        margin-top: 70px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    table td{
+        padding: .5rem .7rem;
+        font-size: 16px;
+    }
+}
+
+::-webkit-scrollbar {
+    width: .6rem;
+  }
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+  }
+   
+  ::-webkit-scrollbar-thumb {
+    background: #6867de; 
+    border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #6867de; 
+  }
