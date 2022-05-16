@@ -30,6 +30,8 @@
                 <li class="open" id="2" onclick="change_board(this)">Last.fm</li>
                 <li class="open" id="3" onclick="change_board(this)">Fun</li>
                 <li class="open" id="4" onclick="change_board(this)">Information</li>
+                <li class="open" id="5" onclick="change_board(this)">Misc</li>
+                <li class="open" id="6" onclick="change_board(this)">Animals</li>
             </ul>
         </div>
         <div class="command-list">
@@ -116,9 +118,59 @@
                     <td>.8b [question]</td>
                 </tr>
                 <tr>
-                    <td>Test Command 3</td>
-                    <td>This command tests stuff 3</td>
-                    <td>$test [whatever input] 3</td>
+                    <td>rps</td>
+                    <td>Play rock paper scissors with the bot</td>
+                    <td>.rps [choice]</td>
+                </tr>
+                <tr>
+                  <td>tictactoe</td>
+                  <td>Starts a tictactoe game</td>
+                  <td>.tictactoe [@player1] [@player2]</td>
+                </tr>
+                <tr>
+                  <td>place</td>
+                  <td>Places a tile for tictactoe</td>
+                  <td>.place [int 1-9]</td>
+                </tr>
+                <tr>
+                  <td>tweet</td>
+                  <td>Generates a tweet</td>
+                  <td>.tweet [username] [message]</td>
+                </tr>
+                <tr>
+                  <td>slots</td>
+                  <td>Quick game of slots</td>
+                  <td>.slots</td>
+                </tr>
+                <tr>
+                  <td>meme</td>
+                  <td>Random meme off of reddit</td>
+                  <td>.meme</td>
+                </tr>
+                <tr>
+                  <td>wasted</td>
+                  <td>Apply wasted overlay to avatar</td>
+                  <td>.wasted [@user]</td>
+                </tr>
+                <tr>
+                  <td>gayify</td>
+                  <td>Apply rainbow flag overlay to avatar</td>
+                  <td>.gayify [@user]</td>
+                </tr>
+                <tr>
+                    <td>deepfry</td>
+                    <td>Apply deepfried overlay to avatar</td>
+                    <td>.deepfry [@user]</td>
+                </tr>
+                <tr>
+                    <td>joke</td>
+                    <td>Random joke</td>
+                    <td>.joke</td>
+                </tr>
+                <tr>
+                    <td>ppsize</td>
+                    <td>Random ppsize for user</td>
+                    <td>.ppsize [@user]</td>
                 </tr>
             </table>
 
@@ -148,6 +200,95 @@
                     <td>Get the bots uptime</td>
                     <td>.uptime</td>
                 </tr>
+                <tr>
+                    <td>av</td>
+                    <td>Get users avatar</td>
+                    <td>.av [@user]</td>
+                </tr>
+                <tr>
+                    <td>guildav</td>
+                    <td>Get guild avatar</td>
+                    <td>.guildav</td>
+                </tr>
+                <tr>
+                    <td>whois</td>
+                    <td>Get information on a user</td>
+                    <td>.whois [@user]</td>
+                </tr>
+            </table>
+            <table class="commands" id="board5">
+                <tr>
+                    <th>Command</th>
+                    <th>Description</th>
+                    <th>Usage</th>
+                </tr>
+                <tr>
+                    <td>btc</td>
+                    <td>Current bitcoin prices</td>
+                    <td>.btc</td>
+                </tr>
+                <tr>
+                    <td>eth</td>
+                    <td>Current ethereum prices</td>
+                    <td>.eth</td>
+                </tr>
+                <tr>
+                    <td>fm</td>
+                    <td>Get first message of channel</td>
+                    <td>.fm</td>
+                </tr>
+                <tr>
+                    <td>FILL2</td>
+                    <td>FILL2</td>
+                    <td>.FILL2</td>
+                </tr>
+            </table>
+            <table class="commands" id="board6">
+                <tr>
+                    <th>Command</th>
+                    <th>Description</th>
+                    <th>Usage</th>
+                </tr>
+                <tr>
+                    <td>kitty</td>
+                    <td>Random cat image</td>
+                    <td>.kitty</td>
+                </tr>
+                <tr>
+                    <td>dog</td>
+                    <td>Random dog image</td>
+                    <td>.dog</td>
+                </tr>
+                <tr>
+                    <td>panda</td>
+                    <td>Random panda image</td>
+                    <td>.panda</td>
+                </tr>
+                <tr>
+                    <td>fox</td>
+                    <td>Random fox image</td>
+                    <td>.fox</td>
+                </tr>
+                <tr>
+                    <td>bird</td>
+                    <td>Random bird image</td>
+                    <td>.bird</td>
+                </tr>
+                <tr>
+                    <td>koala</td>
+                    <td>Random koala image</td>
+                    <td>.koala</td>
+                </tr>
+                <tr>
+                    <td>kangaroo</td>
+                    <td>Random kangaroo image</td>
+                    <td>.kangaroo</td>
+                </tr>
+                <tr>
+                    <td>racoon</td>
+                    <td>Random racoon image</td>
+                    <td>.racoon</td>
+                </tr>
             </table>
         </div>
     </div>
@@ -156,15 +297,16 @@
 <script>
 
     document.getElementById('board1').style.display = 'block';
-    for (let i = 1; i <= 4; i++){
+    var last_el = document.querySelectorAll('.command-list > *').length;
+    for (let i = 1; i <= last_el; i++){
         if (i != Number('1')){
-            console.log(document.getElementById('board' + String(i)));
             document.getElementById('board' + String(i)).style.display = 'none';
         }
     }
 
     document.getElementById('1').style.backgroundColor = '#6867de';
-    for (let i = 1; i <= 4; i++){
+    var last_el_btn = document.querySelectorAll('ul > *').length;
+    for (let i = 1; i <= last_el_btn; i++){
         if (i != Number('1')){
             document.getElementById(String(i)).style.backgroundColor = 'transparent';
         }
@@ -175,7 +317,7 @@
         board_id = 'board' + btn_id;
 
         document.getElementById(board_id).style.display = 'block';
-        for (let i = 1; i <= 4; i++){
+        for (let i = 1; i <= last_el; i++){
             if (i != Number(btn_id)){
                 document.getElementById('board' + String(i)).style.display = 'none';
             }
@@ -183,7 +325,7 @@
 
         document.getElementById(btn_id).style.backgroundColor = '#6867de';
         document.getElementById(btn_id).className = 'closed';
-        for (let i = 1; i <= 4; i++){
+        for (let i = 1; i <= last_el_btn; i++){
             if (i != Number(btn_id)){
                 document.getElementById(String(i)).style.backgroundColor = 'transparent';
                 document.getElementById(String(i)).className = 'open';
